@@ -60,17 +60,17 @@ const Signup = () => {
       });
 
       if (response.status === 201) {
-        toast.success('Signup successful! Please verify your email.'); // Success notification
+        toast.success('Signup successful! Please verify your email.'); 
         navigate('/verifyEmail');
       } else {
-        toast.error('Signup failed'); // Error notification
+        toast.error('Signup failed'); 
         console.log('Error: Unexpected status code:', response.status);
-        // Display a message to the user or handle the error in an appropriate manner
+       
       }
     } catch (error) {
-      toast.error('Signup error: ' + error); // Error notification
+      toast.error('Signup error: ' + error); 
       console.error("SignUp Error: ", error);
-      // Handle the error, display a meaningful message, or take alternative action
+      
     }
   };
 
@@ -80,7 +80,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-2 mb-5">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/Signup.jpg" alt="Signup" className="img-fluid signup-image" />

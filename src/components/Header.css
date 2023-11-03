@@ -6,7 +6,13 @@
   border-radius: 8px;
   height: auto;
 }
-
+.footer-container {
+  background: linear-gradient(-45deg, #663324, #760631, #b40bd9);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  border-radius: 8px;
+  height: 100%;
+}
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

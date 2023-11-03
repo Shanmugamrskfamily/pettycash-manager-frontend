@@ -1,5 +1,3 @@
-/* AllExpenses.css */
-
 .card {
   background: linear-gradient(-45deg, #bb07a9, #d80f5c, #845305);
   background-size: 400% 400%;
@@ -36,7 +34,11 @@
 }
 .heading {
   font-size: 50px;
+  font-weight: bold;
   background: -webkit-linear-gradient(#e20d0d, #bda7a7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.text-yellow {
+  color: gold;
 }

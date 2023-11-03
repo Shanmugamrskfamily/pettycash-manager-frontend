@@ -2,7 +2,7 @@
   background: linear-gradient(-45deg, #eb663d, #e73c7e, #066851);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
-  height: 80vh;
+  height: 100%;
   border-radius: 20px;
 }
 
@@ -19,7 +19,7 @@
 }
 .ediUserOtp-image {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 100%;
   border-radius: 20px;
   object-fit: cover;
 }

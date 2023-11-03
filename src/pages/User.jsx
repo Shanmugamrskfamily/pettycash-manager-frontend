@@ -34,7 +34,6 @@ const User = () => {
       if (response.ok) {
         const data = await response.json();
         setUserData(data);
-        // toast.success('User Details Loaded Successfully!');
       } else {
         console.error('Error fetching user data:', response.status);
         toast.error('Error fetching user data:', response.status);
@@ -50,7 +49,7 @@ const User = () => {
   };
 
   return (
-    <div className="container mt-5 user-primary">
+    <div className="container mt-2 user-primary mb-5">
       <h1 className='text-center userHeading'>User Information/ Update</h1>
       <div className="row text-white">
         <div className="col-md-6">

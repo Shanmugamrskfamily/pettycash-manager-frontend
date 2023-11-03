@@ -71,6 +71,7 @@ const EditUser = () => {
           toast.error('Error fetching avatar list:', error);
         }
       };
+
       const handleUpdate = async (e) => {
         e.preventDefault();
       
@@ -111,7 +112,7 @@ const EditUser = () => {
       };
 
       return (
-        <div className="container mt-5">
+        <div className="container mb-5 mt-2">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/user.jpg" alt="Signup" className="img-fluid userEdit-image" />

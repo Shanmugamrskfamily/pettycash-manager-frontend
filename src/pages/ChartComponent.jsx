@@ -21,7 +21,7 @@ const ChartComponent = () => {
         const dates = expensesData.map((expense) => expense.date);
         const totalPrice = expensesData.map((expense) => expense.totalPrice);
 
-        // Format the dates to dd/mm/yyyy format
+        
         const formattedDates = dates.map((date) => {
           const newDate = new Date(date);
           return `${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}`;

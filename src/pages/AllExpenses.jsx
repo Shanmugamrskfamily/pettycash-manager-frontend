@@ -104,17 +104,18 @@ const AllExpenses = () => {
   const filteredExpenses = expenses.filter(
     (expense) =>
       expense.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      expense.description.toLowerCase().includes(searchQuery.toLowerCase())
+      expense.description.toLowerCase().includes(searchQuery.toLowerCase())||
+      expense.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <div className="container my-5">
+    <div className="container mb-5 mt-2">
       <h1 className="mb-4 text-center heading text-white">All Expenses</h1>
       <div className="d-flex justify-content-end mb-3">
         <input
           type="text"
           className="form-control me-2"
-          placeholder="Search by title or description"
+          placeholder="Search by Title or Description or Category"
           onChange={handleSearch}
         />
         <button onClick={handleExportTransactions} className="btn btn-success">
@@ -127,7 +128,7 @@ const AllExpenses = () => {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title text-center">{expense.title}</h5>
-                <h6 className="card-subtitle mb-2 text-center text-muted">{expense.category}</h6>
+                <b className="card-subtitle mb-2 text-center text-yellow">{expense.category}</b>
                 <hr />
                 <p className="card-text">Date: {new Date(expense.date).toLocaleDateString('en-GB')}</p>
                 <p className="card-text">Description: {expense.description}</p>

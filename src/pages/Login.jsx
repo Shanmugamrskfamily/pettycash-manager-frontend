@@ -34,22 +34,21 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        // Handle successful login, e.g., store token in local storage
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userId', response.data.userId);
         localStorage.setItem('userName', response.data.userName);
         localStorage.setItem('avatar',response.data.avatar);
-        toast.success('Login Successful'); // Display a success message
-        navigate('/dashboard'); // Redirect to dashboard or any authorized route
+        toast.success('Login Successful'); 
+        navigate('/dashboard'); 
       } else {
-        // Handle other status codes or display a message
+        
         console.log('Login failed, Invalid Email or Password');
-        toast.error('Login failed, Invalid Email or Password'); // Display a login failure message
+        toast.error('Login failed, Invalid Email or Password'); 
       }
     } catch (error) {
       console.error('Login Error: ', error);
-      toast.error(`Login Error: Invalid Email or Password!`); // Display a general error message
-      // Handle the error or display a message
+      toast.error(`Login Error: Invalid Email or Password!`); 
+      
     }
   };
 
@@ -58,7 +57,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-2 mb-5">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/Login.jpg" alt="Login" className="img-fluid login-image" />

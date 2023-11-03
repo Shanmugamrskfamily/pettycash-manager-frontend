@@ -69,7 +69,7 @@ const Dashboard = () => {
   }, [navigate]);
 
   return (
-    <div className="mt-2 mb-2">
+    <div className="mt-2 mb-5">
     <div className="container container-dashboard p-4">
       <h1 className="display-4 mb-4 fw-bold text-warning text-center">Dashboard</h1>
 

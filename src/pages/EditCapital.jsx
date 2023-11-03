@@ -75,7 +75,7 @@ const EditCapital = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mb-5 mt-2">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/addCapital.jpg" alt="Login" className="img-fluid capitalEdit-image" />

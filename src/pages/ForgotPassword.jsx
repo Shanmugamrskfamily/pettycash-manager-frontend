@@ -31,7 +31,7 @@ const ForgotPassword = () => {
       const response = await axios.post(`${API}sendPasswordResetLink`, { email });
 
       if (response.status === 200) {
-        // Request for OTP successful, navigate to verification page
+        
         toast.success('Password reset OTP sent to your email.');
         navigate('/forgotPasswordVerification');
       } else {
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mb-5 mt-2">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/PasswordReset.jpg" alt="Forgot Password" className="img-fluid login-image" />

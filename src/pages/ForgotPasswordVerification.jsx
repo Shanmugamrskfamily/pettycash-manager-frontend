@@ -24,7 +24,7 @@ const ForgotPasswordVerification = () => {
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
 
-    // Password validation regex
+    
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$/;
 
     if (!passwordRegex.test(newPassword)) {
@@ -36,7 +36,7 @@ const ForgotPasswordVerification = () => {
       const response = await axios.post(`${API}resetPassword`, { otp, newPassword });
 
       if (response.status === 200) {
-        // Password reset and update successful, navigate to login page
+       
         toast.success('Password reset and update successful.');
         navigate('/login');
       } else {
@@ -49,7 +49,7 @@ const ForgotPasswordVerification = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mb-5 mt-2">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/OTP.jpg" alt="Login" className="img-fluid login-image" />

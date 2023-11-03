@@ -16,7 +16,7 @@ const LandingPage = () => {
   }, [navigate]);
 
   return (
-    <div className="container container-landing mt-5">
+    <div className="container container-landing mt-2 mb-5">
       <div className="row">
         <div className="col-md-6 mt-2 d-flex align-items-center justify-content-center">
           <img src="/images/LandingPage.jpg" alt="Signup" className="img-fluid landing-image" />

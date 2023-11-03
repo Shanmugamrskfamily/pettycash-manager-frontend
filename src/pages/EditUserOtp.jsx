@@ -76,7 +76,7 @@ const EditUserOtp = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mb-5 mt-2">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/OTP.jpg" alt="Forgot Password" className="img-fluid ediUserOtp-image" />

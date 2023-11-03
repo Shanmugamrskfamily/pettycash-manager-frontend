@@ -30,19 +30,19 @@ const EmailOTPVerification = () => {
       const response = await axios.post(`${API}verifyEmail`, { token });
 
       if (response.status === 200) {
-        toast.success('OTP verified. Redirecting to login.'); // Successful verification notification
+        toast.success('OTP verified. Redirecting to login.'); 
         navigate('/login');
       } else {
-        toast.error('OTP verification failed'); 
+        toast.error('OTP verification failed/ Invalid OTP!'); 
       }
     } catch (error) {
       console.error('Error verifying OTP: ', error);
-      toast.error('Failed to verify OTP. Please try again.'); // Error notification
+      toast.error('Failed to verify OTP/ Invalid OTP! Please try again.'); 
     }
   };
 
   return (
-    <div className="container my-5">
+    <div className="container mb-5 mt-2">
       <div className="row">
       <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/OTP.jpg" alt="Verification" className="img-fluid" />

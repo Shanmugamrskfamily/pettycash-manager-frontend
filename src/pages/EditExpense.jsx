@@ -33,8 +33,6 @@ const EditExpense = () => {
       try {
         const response = await axios.get(`${API}expenses/details/${storedUserId}/${storedExpenseId}`);
         const { data } = response;
-        console.log(data);
-        
         const formattedDate = new Date(data.expenseDetails.date).toISOString().split('T')[0];
         setExpenseData({ ...data.expenseDetails, date: formattedDate });
       } catch (error) {
@@ -52,12 +50,12 @@ const EditExpense = () => {
       const response = await axios.put(`${API}expenses/edit`, {
         userId: storedUserId,
         expenseId: storedExpenseId,
-        ...expenseData, // Send updated expense details
+        ...expenseData, 
       });
 
       if (response.status === 200) {
         toast.success('Expense Updated!');
-        localStorage.removeItem('editExpenseId'); // Remove the stored expenseId from local storage
+        localStorage.removeItem('editExpenseId'); 
         navigate('/dashboard/allExpenses');
       }
     } catch (error) {
@@ -71,7 +69,7 @@ const EditExpense = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mb-5 mt-2">
       <div className="row">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <img src="/images/addExpense.jpg" alt="Expense" className="img-fluid expense-image" />
