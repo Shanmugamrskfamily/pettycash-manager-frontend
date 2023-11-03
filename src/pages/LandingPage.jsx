@@ -42,7 +42,7 @@ const LandingPage = () => {
         <div className="col">
         <b className='text-white'>Expense Management</b>
           <ul className="text-white">
-            <li className="list-group-item">Item 5</li>
+            <li className="list-group-item">Add and Edit Capital Amount</li>
             <li className="list-group-item">Item 6</li>
             <li className="list-group-item">Item 7</li>
             <li className="list-group-item">Item 8</li>
