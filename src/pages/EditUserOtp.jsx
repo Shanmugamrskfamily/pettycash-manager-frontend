@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API } from '../API/API';
+import { RingLoader } from 'react-spinners';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -10,6 +11,7 @@ import './EditUserOtp.css'
 
 const EditUserOtp = () => {
   const [otp, setOtp] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const EditUserOtp = () => {
 
   const handleOtpSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const newEmail = localStorage.getItem('newEmail');
     const newName = localStorage.getItem('newUserName');
@@ -73,6 +76,9 @@ const EditUserOtp = () => {
       toast.error('Failed to update user details. Please try again.', error);
       console.error('Error updating user:', error);
     }
+    finally {
+      setLoading(false); 
+    }
   };
 
   return (
@@ -96,10 +102,14 @@ const EditUserOtp = () => {
           />
         </div>
         <div className='text-center'>
+            {loading ? (
+              <RingLoader color={'#123abc'} className='text-center' loading={loading} size={50} /> 
+            ) : (
               <button type="submit" className="btn w-50 btn-primary">
-          Submit OTP
-        </button>
-        </div>
+                Submit OTP
+              </button>
+            )}
+          </div>
       </form>
       </div>
         </div>

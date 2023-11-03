@@ -9,6 +9,7 @@ import './AddCapital.css';
 
 const AddCapital = () => {
   const [capitalAmount, setCapitalAmount] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +32,8 @@ const AddCapital = () => {
       return;
     }
 
+    setLoading(true); 
+
     try {
       const response = await fetch(`${API}capital/add`, {
         method: 'POST',
@@ -38,7 +41,7 @@ const AddCapital = () => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${storedToken}`,
         },
-        body: JSON.stringify({ userId: storedUserId, amount:capitalAmount }),
+        body: JSON.stringify({ userId: storedUserId, amount: capitalAmount }),
       });
 
       if (response.ok) {
@@ -51,6 +54,8 @@ const AddCapital = () => {
     } catch (error) {
       toast.error('Failed to add capital. Please try again.', error);
       console.error('Error adding capital:', error);
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -62,24 +67,30 @@ const AddCapital = () => {
         </div>
         <div className="col-md-6 capital-bg d-flex align-items-center justify-content-center">
           <div className="w-75">
-            <h1 className='text-center mb-3 text-white'>Add Capital</h1>
-      <form onSubmit={handleAddCapital}>
-      <div className="form-group m-2">
-          <input
-            type="number"
-            value={capitalAmount}
-            onChange={(e) => setCapitalAmount(e.target.value)}
-            className="form-control mb-2"
-            placeholder="Enter Capital Amount"
-          />
-        </div>
-        <div className='text-center'>
-        <button type="submit" className="btn w-50 btn-primary">
-          Add Capital
-        </button>
-        </div>
-      </form>
-      </div>
+            <h1 className="text-center mb-3 text-white">Add Capital</h1>
+            <form onSubmit={handleAddCapital}>
+              <div className="form-group m-2">
+                <input
+                  type="number"
+                  value={capitalAmount}
+                  onChange={(e) => setCapitalAmount(e.target.value)}
+                  className="form-control mb-2"
+                  placeholder="Enter Capital Amount"
+                />
+              </div>
+              <div className="text-center">
+                {loading ? ( 
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  <button type="submit" className="btn w-50 btn-primary">
+                    Add Capital
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

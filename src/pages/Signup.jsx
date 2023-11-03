@@ -1,4 +1,3 @@
-//Signup.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +6,8 @@ import { API } from '../API/API';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './Signup.css'
+import { Spinner } from 'react-bootstrap';
+import './Signup.css';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -16,6 +16,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [selectedAvatar, setSelectedAvatar] = useState('');
   const [avatarList, setAvatarList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -27,6 +28,7 @@ const Signup = () => {
       navigate('/dashboard');
     }
   }, [navigate]);
+  
   useEffect(() => {
     const fetchAvatars = async () => {
       try {
@@ -36,7 +38,7 @@ const Signup = () => {
         }
       } catch (error) {
         toast.error('Error Fetching Avatar:', error);
-        console.log("Error Fetching Avatar: ", error);
+        console.log('Error Fetching Avatar: ', error);
       }
     };
     fetchAvatars();
@@ -44,11 +46,11 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
     if (!validatePassword()) {
       toast.error('Password must be at least 8 characters long and contain 1 uppercase letter, 1 number, and 1 symbol.');
       return;
     }
+    setLoading(true);
 
     try {
       const response = await axios.post(`${API}signup`, {
@@ -60,17 +62,17 @@ const Signup = () => {
       });
 
       if (response.status === 201) {
-        toast.success('Signup successful! Please verify your email.'); 
+        toast.success('Signup successful! Please verify your email.');
         navigate('/verifyEmail');
       } else {
-        toast.error('Signup failed'); 
+        toast.error('Signup failed');
         console.log('Error: Unexpected status code:', response.status);
-       
       }
     } catch (error) {
-      toast.error('Signup error: ' + error); 
-      console.error("SignUp Error: ", error);
-      
+      toast.error('Signup error: ' + error);
+      console.error('SignUp Error: ', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -86,7 +88,7 @@ const Signup = () => {
           <img src="/images/Signup.jpg" alt="Signup" className="img-fluid signup-image" />
         </div>
         <div className="col-md-6 form-bg">
-          <h1 className='text-center text-white fw-bold mt-4 mb-4'>Signup</h1>
+          <h1 className="text-center text-white fw-bold mt-4 mb-4">Signup</h1>
           <form onSubmit={handleSignup}>
             <div className="form-group m-2">
               <input
@@ -138,14 +140,20 @@ const Signup = () => {
                 ))}
               </select>
             </div>
-            <div className='text-center'>
-            <button type="submit" className="btn btn-primary w-50 m-2">
-              Signup
-            </button>
-            <h4 className='text-white'>Waiting For Email Verification👇🏻?</h4>
-            <Link className='bg-light' to="/verifyEmail">
-              Verify Email with OTP
-            </Link>
+            <div className="text-center">
+              {loading ? (
+                <Spinner animation="border" variant="primary" />
+              ) : (
+                <>
+                  <button type="submit" className="btn btn-primary w-50 m-2">
+                    Signup
+                  </button>
+                  <h4 className="text-white">Waiting For Email Verification👇🏻?</h4>
+                  <Link className="bg-light" to="/verifyEmail">
+                    Verify Email with OTP
+                  </Link>
+                </>
+              )}
             </div>
           </form>
         </div>

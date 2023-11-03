@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API } from '../API/API';
-import './EditExpense.css'
+import './EditExpense.css';
+import { Spinner } from 'react-bootstrap';
 
 const EditExpense = () => {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ const EditExpense = () => {
     quantity: 0,
     description: '',
   });
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const storedUserId = localStorage.getItem('userId');
@@ -37,6 +40,8 @@ const EditExpense = () => {
         setExpenseData({ ...data.expenseDetails, date: formattedDate });
       } catch (error) {
         console.error('Error fetching expense details:', error);
+      } finally {
+        setLoading(false); 
       }
     };
 
@@ -45,7 +50,6 @@ const EditExpense = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.put(`${API}expenses/edit`, {
         userId: storedUserId,
@@ -68,6 +72,16 @@ const EditExpense = () => {
     setExpenseData({ ...expenseData, [name]: value });
   };
 
+  if (loading) {
+    return (
+      <div className="text-center mt-5">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
+
   return (
     <div className="container mb-5 mt-2">
       <div className="row">
@@ -75,79 +89,79 @@ const EditExpense = () => {
           <img src="/images/addExpense.jpg" alt="Expense" className="img-fluid expense-image" />
         </div>
         <div className="col-md-6 form-expense">
-      <h1 className='text-center text-white fw-bold mt-4 mb-4'>Edit Expense</h1>
-      <form onSubmit={handleSubmit}>
-      <div className="form-group m-2">
-          <input
-            type="text"
-            className="form-control mb-2"
-            id="title"
-            name="title"
-            placeholder="Enter Title"
-            value={expenseData.title}
-            onChange={handleChange}
-          />
+          <h1 className='text-center text-white fw-bold mt-4 mb-4'>Edit Expense</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group m-2">
+              <input
+                type="text"
+                className="form-control mb-2"
+                id="title"
+                name="title"
+                placeholder="Enter Title"
+                value={expenseData.title}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group m-2">
+              <input
+                type="text"
+                className="form-control"
+                id="category"
+                name="category"
+                placeholder="Enter Category"
+                value={expenseData.category}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group m-2">
+              <input
+                type="date"
+                className="form-control"
+                id="date"
+                name="date"
+                value={expenseData.date}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group m-2">
+              <input
+                type="number"
+                className="form-control"
+                id="price"
+                name="price"
+                placeholder="Enter Price"
+                value={expenseData.price}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group m-2">
+              <input
+                type="number"
+                className="form-control"
+                id="quantity"
+                name="quantity"
+                placeholder="Enter Quantity"
+                value={expenseData.quantity}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group m-2">
+              <textarea
+                className="form-control descriptionEdit-expense"
+                placeholder="Enter Description"
+                id="description"
+                name="description"
+                value={expenseData.description}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="m-2 text-center">
+              <button type="submit" className="btn btn-primary">
+                Update Expense
+              </button>
+            </div>
+          </form>
         </div>
-        <div className="form-group m-2">
-          <input
-            type="text"
-            className="form-control"
-            id="category"
-            name="category"
-            placeholder="Enter Category"
-            value={expenseData.category}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group m-2">
-          <input
-            type="date"
-            className="form-control"
-            id="date"
-            name="date"
-            value={expenseData.date}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group m-2">
-            <input
-            type="number"
-            className="form-control"
-            id="price"
-            name="price"
-            placeholder="Enter Price"
-            value={expenseData.price}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group m-2">
-          <input
-            type="number"
-            className="form-control"
-            id="quantity"
-            name="quantity"
-            placeholder="Enter Quantity"
-            value={expenseData.quantity}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group m-2">
-          <textarea
-            className="form-control descriptionEdit-expense"
-            placeholder="Enter Description"
-            id="description"
-            name="description"
-            value={expenseData.description}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="m-2 text-center">
-        <button type="submit" className="btn btn-primary">
-          Update Expense
-        </button>
-        </div>
-      </form>
-      </div>
       </div>
     </div>
   );

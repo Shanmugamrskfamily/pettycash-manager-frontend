@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API } from '../API/API';
+import { RingLoader } from 'react-spinners';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -16,7 +17,9 @@ const EditUser = () => {
       avatar: ''
     });
     const [avatarList, setAvatarList] = useState([]);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
 
     useEffect(() => {
         const storedUserId = localStorage.getItem('userId');
@@ -38,10 +41,10 @@ const EditUser = () => {
               Authorization: `Bearer ${token}`,
             },
           });
-          console.log("The Response is: ",response)
+          
           if (response.ok) {
             const data = await response.json();
-            console.log("The Data is: ",data);
+            
             setUser({
               name: data.user.name || '',
               mobileNumber: data.user.mobileNumber || '',
@@ -60,7 +63,6 @@ const EditUser = () => {
           const response = await fetch(`${API}avatars`);
           if (response.ok) {
             const data = await response.json();
-            console.log("Avatar data: ",data);
             setAvatarList(data.avatars);
           } else {
             console.error('Error fetching avatar list:', response.status);
@@ -74,7 +76,8 @@ const EditUser = () => {
 
       const handleUpdate = async (e) => {
         e.preventDefault();
-      
+        setLoading(true); 
+    
         try {
           const storedUserId = localStorage.getItem('userId');
           const storedToken = localStorage.getItem('token');
@@ -82,7 +85,7 @@ const EditUser = () => {
           localStorage.setItem('newEmail', user.newEmail);
           localStorage.setItem('newMobileNumber', user.mobileNumber);
           localStorage.setItem('newAvatar', user.avatar);
-      console.log("User Details: ",user);
+    
           const response = await fetch(`${API}sendOTP/${storedUserId}`, {
             method: 'POST',
             headers: {
@@ -91,25 +94,26 @@ const EditUser = () => {
             },
             body: JSON.stringify(user),
           });
-      
+    
           if (response.ok) {
             toast.success('Email OTP sent!');
             navigate('/dashboard/editUserOtp');
           } else {
-            console.log(statuscode(400));
             toast.error('Failed to update user. Please try again.');
           }
         } catch (error) {
           toast.error('Failed to update user. Please try again.', error);
           console.error('Error updating user:', error);
+        } finally {
+          setLoading(false); 
         }
       };
-      
-
+    
       const handleChange = (e) => {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
       };
+    
 
       return (
         <div className="container mb-5 mt-2">
@@ -140,14 +144,18 @@ const EditUser = () => {
               </select>
             </div>
             <div className='text-center'>
-            <button type="submit" className="btn btn-primary">
-              Update User / Send OTP
-            </button>
-            </div>
-          </form>
+            {loading ? (
+              <RingLoader className='text-center' color={'#123abc'} loading={loading} size={50} /> 
+            ) : (
+              <button type="submit" className="btn btn-primary">
+                Update User / Send OTP
+              </button>
+            )}
           </div>
+        </form>
       </div>
     </div>
+  </div>
       );
     };
     
