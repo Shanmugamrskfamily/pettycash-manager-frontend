@@ -1,0 +1,9 @@
+.container-chart {
+  width: 100%;
+  height: 300px;
+}
+
+#myChart {
+  width: 80%;
+  height: 80%;
+}

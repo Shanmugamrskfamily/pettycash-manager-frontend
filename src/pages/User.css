@@ -1,0 +1,15 @@
+.user-primary {
+  border-radius: 10px;
+  background: rgba(4, 24, 98, 0.73);
+  backdrop-filter: blur(10px);
+}
+.userHeading {
+  font-size: 50px;
+  background: -webkit-linear-gradient(#79059d, #e3d8d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.msgUser {
+  color: rgb(210, 93, 20);
+  font-weight: bold;
+}

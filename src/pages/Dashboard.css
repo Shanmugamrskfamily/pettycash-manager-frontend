@@ -1,0 +1,56 @@
+/* Dashboard.css */
+
+/* Styling for Dashboard components */
+.container-dashboard {
+  background: rgba(152, 5, 142, 0.701); /* Semi-transparent background */
+  border-radius: 10px;
+  backdrop-filter: blur(15px); /* Apply a blur effect */
+  padding: 20px;
+}
+
+.dashboard-primary {
+  border-radius: 10px;
+  color: whitesmoke;
+  background: rgba(6, 38, 152, 0.518);
+  backdrop-filter: blur(10px);
+}
+.dashboard-danger {
+  border-radius: 10px;
+  color: whitesmoke;
+  background: rgba(152, 6, 6, 0.518);
+  backdrop-filter: blur(10px);
+}
+.dashboard-success {
+  border-radius: 10px;
+  color: whitesmoke;
+  background: rgba(7, 72, 5, 0.738);
+  backdrop-filter: blur(10px);
+}
+
+/* Styles for individual components */
+.p-4 {
+  padding: 1rem;
+}
+
+/* ChartComponent styles */
+#myChart {
+  backdrop-filter: blur(40px);
+  background: rgba(236, 239, 239, 0.899);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+}
+
+/* Styling for h4 and p elements */
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+/* Styling for icons */
+.fa-solid {
+  color: rgba(255, 255, 255, 0.9); /* Change icon color as needed */
+}

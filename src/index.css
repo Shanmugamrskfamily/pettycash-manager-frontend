@@ -1,0 +1,7 @@
+body {
+  background: url("../public//images/background.webp") no-repeat center center
+    fixed;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  overflow-y: scroll;
+}
