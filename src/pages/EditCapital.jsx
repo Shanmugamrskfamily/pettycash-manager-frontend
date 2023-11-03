@@ -66,10 +66,10 @@ const EditCapital = () => {
         toast.success('Capital amount updated successfully.');
         navigate('/dashboard');
       } else {
-        toast.error('Failed to update capital amount. Please try again.');
+        toast.error('User did not created capital Account! Failed to update capital amount. Please try again.');
       }
     } catch (error) {
-      toast.error('Failed to update capital amount. Please try again.', error);
+      toast.error('User did not created capital Account! Failed to update capital amount. Please try again.', error);
       console.error('Error updating capital amount:', error);
     }
   };
