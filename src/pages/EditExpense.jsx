@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API } from '../API/API';
 import './EditExpense.css'
 
 const EditExpense = () => {
@@ -30,7 +31,7 @@ const EditExpense = () => {
   useEffect(() => {
     const fetchExpenseDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:4505/api/expenses/details/${storedUserId}/${storedExpenseId}`);
+        const response = await axios.get(`${API}expenses/details/${storedUserId}/${storedExpenseId}`);
         const { data } = response;
         console.log(data);
         
@@ -48,7 +49,7 @@ const EditExpense = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:4505/api/expenses/edit`, {
+      const response = await axios.put(`${API}expenses/edit`, {
         userId: storedUserId,
         expenseId: storedExpenseId,
         ...expenseData, // Send updated expense details

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API } from '../API/API';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -31,7 +32,7 @@ const EditUser = () => {
 
       const fetchUserData = async (userId,token) => {
         try {
-          const response = await fetch(`http://localhost:4505/api/user/${userId}`, {
+          const response = await fetch(`${API}user/${userId}`, {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${token}`,
@@ -56,7 +57,7 @@ const EditUser = () => {
       };
       const fetchAvatarList = async () => {
         try {
-          const response = await fetch(`http://localhost:4505/api/avatars`);
+          const response = await fetch(`${API}avatars`);
           if (response.ok) {
             const data = await response.json();
             console.log("Avatar data: ",data);
@@ -81,7 +82,7 @@ const EditUser = () => {
           localStorage.setItem('newMobileNumber', user.mobileNumber);
           localStorage.setItem('newAvatar', user.avatar);
       console.log("User Details: ",user);
-          const response = await fetch(`http://localhost:4505/api/sendOTP/${storedUserId}`, {
+          const response = await fetch(`${API}sendOTP/${storedUserId}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

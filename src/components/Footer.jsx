@@ -7,7 +7,7 @@ import './Header.css'
 
 const Footer = () => {
   return (
-    <footer className=" d-flex justify-content-center gap-4 text-center header-container sticky-bottom mt-5 text-light">
+    <footer className=" d-flex justify-content-center gap-3 text-center header-container sticky-bottom mt-5 text-light">
       <p>&copy; 2023 SHANMUGAM R. All rights reserved.</p>
         <a href="https://www.linkedin.com/in/shanmugamrskfamily/" className="text-light">
           <h3><i className="fab fa-linkedin"></i></h3>

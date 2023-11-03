@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API } from '../API/API';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -29,7 +30,7 @@ const Signup = () => {
   useEffect(() => {
     const fetchAvatars = async () => {
       try {
-        const response = await axios.get('http://localhost:4505/api/avatars');
+        const response = await axios.get(`${API}avatars`);
         if (response.status === 200) {
           setAvatarList(response.data.avatars);
         }
@@ -50,7 +51,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4505/api/signup', {
+      const response = await axios.post(`${API}signup`, {
         name,
         email,
         mobileNumber,

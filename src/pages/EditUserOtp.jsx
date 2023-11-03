@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API } from '../API/API';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -46,7 +47,7 @@ const EditUserOtp = () => {
         newAvatar,
       };
 
-      const response = await fetch(`http://localhost:4505/api/editUser`, {
+      const response = await fetch(`${API}editUser`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

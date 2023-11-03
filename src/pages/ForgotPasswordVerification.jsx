@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API } from '../API/API';
 import './Login.css'
 
 const ForgotPasswordVerification = () => {
@@ -32,7 +33,7 @@ const ForgotPasswordVerification = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4505/api/resetPassword', { otp, newPassword });
+      const response = await axios.post(`${API}resetPassword`, { otp, newPassword });
 
       if (response.status === 200) {
         // Password reset and update successful, navigate to login page

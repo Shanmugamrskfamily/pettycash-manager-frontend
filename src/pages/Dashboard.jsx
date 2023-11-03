@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ChartComponent from './ChartComponent'; // Import your ChartComponent
+import ChartComponent from './ChartComponent'; 
 import { useNavigate } from 'react-router-dom';
+import { API } from '../API/API';
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -21,7 +22,7 @@ const Dashboard = () => {
 
     const fetchCapitalBalance = async () => {
       try {
-        const response = await axios.get(`http://localhost:4505/api/capital/${userId}`, {
+        const response = await axios.get(`${API}capital/${userId}`, {
           headers: {
             Authorization: `Bearer ${storedToken}`
           }
@@ -37,7 +38,7 @@ const Dashboard = () => {
 
     const fetchTotalExpenseAmount = async () => {
       try {
-        const response = await axios.get(`http://localhost:4505/api/expenses/cumulativeTotal/${userId}`, {
+        const response = await axios.get(`${API}expenses/cumulativeTotal/${userId}`, {
           headers: {
             Authorization: `Bearer ${storedToken}`
           }
@@ -51,7 +52,7 @@ const Dashboard = () => {
 
     const fetchExpenseTransactionCount = async () => {
       try {
-        const response = await axios.get(`http://localhost:4505/api/expenses/total/${userId}`, {
+        const response = await axios.get(`${API}expenses/total/${userId}`, {
           headers: {
             Authorization: `Bearer ${storedToken}`
           }

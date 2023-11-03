@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API } from '../API/API';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,7 +27,7 @@ const EmailOTPVerification = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4505/api/verifyEmail', { token });
+      const response = await axios.post(`${API}verifyEmail`, { token });
 
       if (response.status === 200) {
         toast.success('OTP verified. Redirecting to login.'); // Successful verification notification

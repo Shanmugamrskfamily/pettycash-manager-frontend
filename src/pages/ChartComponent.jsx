@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Chart from 'chart.js/auto';
+import { API } from '../API/API';
 import './ChartComponent.css'
 
 const ChartComponent = () => {
@@ -13,7 +14,7 @@ const ChartComponent = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4505/api/expenses/totalPriceAndDate/${userId}`
+          `${API}expenses/totalPriceAndDate/${userId}`
         );
 
         const expensesData = response.data.expenses;

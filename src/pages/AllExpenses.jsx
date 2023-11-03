@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import axios from 'axios';
 import { jsPDF } from 'jspdf';
+import { API } from '../API/API';
 import './AllExpenses.css';
 import { toast } from 'react-toastify';
 
@@ -25,7 +26,7 @@ const AllExpenses = () => {
 
   const fetchExpenses = async (userId, token) => {
     try {
-      const response = await axios.get(`http://localhost:4505/api/expenses/all/${userId}`, {
+      const response = await axios.get(`${API}expenses/all/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -56,7 +57,7 @@ const AllExpenses = () => {
       const storedToken = localStorage.getItem('token');
 
       try {
-        const response = await axios.delete(`http://localhost:4505/api/expenses/delete/${storedUserId}/${expenseId}`, {
+        const response = await axios.delete(`${API}expenses/delete/${storedUserId}/${expenseId}`, {
           headers: {
             Authorization: `Bearer ${storedToken}`,
           },

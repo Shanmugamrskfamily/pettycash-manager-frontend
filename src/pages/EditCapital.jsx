@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API } from '../API/API';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -23,7 +24,7 @@ const EditCapital = () => {
 
   const getCapitalAmount = async (userId, token) => {
     try {
-      const response = await fetch(`http://localhost:4505/api/capital/${userId}`, {
+      const response = await fetch(`${API}capital/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -52,7 +53,7 @@ const EditCapital = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:4505/api/capital/edit', {
+      const response = await fetch(`${API}capital/edit`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

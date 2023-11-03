@@ -22,35 +22,36 @@ const LandingPage = () => {
           <img src="/images/LandingPage.jpg" alt="Signup" className="img-fluid landing-image" />
         </div>
         <div className="col-md-6 mt-2 landing-primary">
-          <h1 className='text-center text-white'>Welcome to RSK PettyCash Manager</h1>
+          <h1 className='text-center laning-heading'>Welcome to RSK PettyCash Manager</h1>
           <p className='text-white'>
-          A petty cash manager is responsible for overseeing and maintaining accurate records of a small fund used for everyday expenses, ensuring proper authorization and documentation of all transactions.
+            This petty cash manager is responsible for overseeing and maintaining accurate records of a small fund used for everyday expenses, ensuring proper authorization and documentation of all transactions.
           </p>
-          <h4 className='text-warning bg-gradient-light'>Features of This Application:</h4>
-          <div className="container">
-      <div className="row">
-        <div className="col">
-            <b className='text-white'>User Management</b>
-          <ul className="text-white">
-            <li className="list-group-item">Signup</li>
-            <li className="list-group-item">User Email Verification</li>
-            <li className="list-group-item">Login</li>
-            <li className="list-group-item">Forgot Password Reset Flow</li>
-            <li className="list-group-item">User Profile Update Flow</li>
-          </ul>
-        </div>
-        <div className="col">
-        <b className='text-white'>Expense Management</b>
-          <ul className="text-white">
-            <li className="list-group-item">Add and Edit Capital Amount</li>
-            <li className="list-group-item">Item 6</li>
-            <li className="list-group-item">Item 7</li>
-            <li className="list-group-item">Item 8</li>
-          </ul>
+          <h4 className='text-warning bg-gradient-light mt-4'>Features of This Application:</h4>
+          <div className="container mt-4">
+          <div className="row">
+          <div className="col text-center">
+            <b className='topic'>User Management</b>
+            <ul className="text-white">
+              <li className="list-group-item">Signup</li>
+              <li className="list-group-item">User Email Verification</li>
+              <li className="list-group-item">Login</li>
+              <li className="list-group-item">Forgot Password Reset Flow</li>
+              <li className="list-group-item">User Profile Update Flow</li>
+            </ul>
+          </div>
+          <div className="col text-center">
+            <b className='topic'>Expense Management</b>
+            <ul className="text-white">
+              <li className="list-group-item">Dashboard with Expenses chart and Acounting Details</li>
+              <li className="list-group-item">Add and Edit Capital Amount</li>
+              <li className="list-group-item">Add/Edit/Delete Expense</li>
+              <li className="list-group-item">Get All Expense Details</li>
+              <li className="list-group-item">Download All Expenses in PDF</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-        </div>
         <div className='text-center mt-2'>
           <Link to="/login" className="btn w-50 btn-primary me-3">
             Login
