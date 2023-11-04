@@ -105,7 +105,7 @@ const EditUserOtp = () => {
             {loading ? (
               <RingLoader color={'#123abc'} className='text-center' loading={loading} size={50} /> 
             ) : (
-              <button type="submit" className="btn w-50 btn-primary">
+              <button type="submit" className="btn w-50 btn-success">
                 Submit OTP
               </button>
             )}

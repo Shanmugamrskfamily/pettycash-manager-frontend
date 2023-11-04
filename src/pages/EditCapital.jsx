@@ -1,3 +1,4 @@
+//EditCapital.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -109,7 +110,7 @@ const EditCapital = () => {
                   />
                 </div>
                 <div className='text-center'>
-                  <button type="submit" className="btn w-50 btn-primary">
+                  <button type="submit" className="btn w-50 btn-warning">
                     Update Capital
                   </button>
                 </div>

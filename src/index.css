@@ -1,6 +1,6 @@
 body {
-  font-family: Edu TAS Beginner;
-  background: url("../public//images/background.webp") no-repeat center center
+  font-family: "Edu TAS Beginner", sans-serif;
+  background: url("../public/images/background.webp") no-repeat center center
     fixed;
   background-size: cover;
   backdrop-filter: blur(10px);

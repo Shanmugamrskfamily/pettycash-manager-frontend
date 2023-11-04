@@ -42,3 +42,14 @@
 .text-yellow {
   color: gold;
 }
+.delete-button {
+  background: linear-gradient(rgb(231, 217, 217), rgb(255, 204, 0));
+  cursor: pointer;
+  border-radius: 20%;
+  height: 40px;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: linear-gradient(rgba(255, 64, 0, 0.908), rgb(197, 197, 223));
+}

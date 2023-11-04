@@ -1,3 +1,4 @@
+//AllExpenses.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -150,7 +151,7 @@ const AllExpenses = () => {
                       <button onClick={() => handleEdit(expense._id)} className="btn w-40 btn-primary me-2">
                         Edit
                       </button>
-                      <button onClick={() => handleDelete(expense._id, expense.title)} className="btn w-40 btn-danger">
+                      <button onClick={() => handleDelete(expense._id, expense.title)} className="delete-button">
                         Delete
                       </button>
                     </div>

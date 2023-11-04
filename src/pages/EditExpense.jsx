@@ -1,3 +1,4 @@
+//EditExpense.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -156,7 +157,7 @@ const EditExpense = () => {
               />
             </div>
             <div className="m-2 text-center">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn text-white fw-bold w-50 btn-warning">
                 Update Expense
               </button>
             </div>

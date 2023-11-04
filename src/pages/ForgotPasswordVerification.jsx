@@ -1,3 +1,4 @@
+//ForgotPasswordVerification.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -83,7 +84,7 @@ const ForgotPasswordVerification = () => {
                 {loading ? (
                   <Spinner animation="border" variant="primary" />
                 ) : (
-                  <button type="submit" className="btn btn-primary w-50 m-2">
+                  <button type="submit" className="btn btn-warning w-50 m-2">
                     Verify OTP & Set New Password
                   </button>
                 )}

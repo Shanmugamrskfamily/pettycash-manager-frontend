@@ -147,7 +147,7 @@ const EditUser = () => {
             {loading ? (
               <RingLoader className='text-center' color={'#123abc'} loading={loading} size={50} /> 
             ) : (
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-warning">
                 Update User / Send OTP
               </button>
             )}

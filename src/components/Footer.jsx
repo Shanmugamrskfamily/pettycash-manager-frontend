@@ -1,3 +1,4 @@
+//Footer.jsx
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
