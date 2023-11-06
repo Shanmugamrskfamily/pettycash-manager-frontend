@@ -6,6 +6,12 @@
   color: whitesmoke;
   background: rgba(60, 46, 2, 0.738);
   backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(200, 4, 4, 0.8);
+  transform: scale(1.05);
 }
 
 .card-body {
@@ -25,12 +31,32 @@
 .heading {
   font-size: 50px;
   font-weight: bold;
-  background: -webkit-linear-gradient(#e20d0d, #bda7a7);
+  background: -webkit-linear-gradient(#e2900d, rgb(255, 9, 9));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 10px rgba(213, 14, 14, 0.8);
+  animation: glow 1.5s ease-in-out infinite;
 }
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(246, 19, 19, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 20px #e20dc6;
+  }
+  100% {
+    text-shadow: 0 0 10px #e2890d;
+  }
+}
+
 .text-yellow {
   color: gold;
+}
+.bord {
+  border: solid #e20d0d;
+  color: #e2890d;
 }
 /* .delete-button {
   background: linear-gradient(rgb(231, 217, 217), rgb(255, 204, 0));

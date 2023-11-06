@@ -124,18 +124,18 @@ const AllExpenses = () => {
         </div>
       ) : (
         <div>
-          <div className="d-flex justify-content-center mb-1 mt-2">
+          <div className="d-flex  justify-content-center mb-1 mt-2">
             <input
               type="text"
-              className="form-control w-50"
+              className="form-control bord  w-50"
               placeholder="Search by Title or Description or Category"
               onChange={handleSearch}
             />
           </div>
-          <div className='text-center fw-bold mb-3'>
+          <div className='text-end fw-bold mb-3'>
             <span className='bg-success text-white fw-bold'>Click to Export Filtered Transaction into PDF 👉🏻</span>
-          <button onClick={handleExportTransactions} className="btn btn-info fw-bold">
-              Export Transaction to PDF
+          <button onClick={handleExportTransactions} className="btn btn-dark fw-bold">
+              Export to PDF <i className="fa-solid fa-file-pdf"></i>
             </button>
             </div>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -143,7 +143,7 @@ const AllExpenses = () => {
               <div key={expense._id} className="col">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title text-center">{expense.title}</h5>
+                    <h3 className="card-title text-center">{expense.title}</h3>
                     <b className="card-subtitle mb-2 text-center text-yellow">{expense.category}</b>
                     <hr />
                     <p className="card-text">Date: {new Date(expense.date).toLocaleDateString('en-GB')}</p>
