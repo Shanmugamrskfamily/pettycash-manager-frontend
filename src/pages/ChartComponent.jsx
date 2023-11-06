@@ -69,7 +69,7 @@ const ChartComponent = () => {
   }, [chartData]);
 
   return (
-    <div className="container-chart">
+    <div className="container-chart bg-light">
       <canvas id="myChart"></canvas>
     </div>
   );

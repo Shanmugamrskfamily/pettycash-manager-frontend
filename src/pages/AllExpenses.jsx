@@ -86,7 +86,7 @@ const AllExpenses = () => {
   
     doc.text(20, 20, 'All Expenses');
   
-    expenses.forEach((expense, index) => {
+    filteredExpenses.forEach((expense, index) => {
       const startY = 30 + index * 80;
       doc.line(10, startY + 70, 200, startY + 70);
       doc.text(20, startY, `Title: ${expense.title}`);
@@ -98,8 +98,9 @@ const AllExpenses = () => {
       doc.text(20, startY + 60, `Total Price: ${expense.totalPrice}`);
     });
   
-    doc.save('Expenses_Transactions.pdf');
+    doc.save('Filtered_Expenses_Transactions.pdf');
   };
+  
   
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
@@ -123,17 +124,20 @@ const AllExpenses = () => {
         </div>
       ) : (
         <div>
-          <div className="d-flex justify-content-end mb-3">
+          <div className="d-flex justify-content-center mb-1 mt-2">
             <input
               type="text"
-              className="form-control me-2"
+              className="form-control w-50"
               placeholder="Search by Title or Description or Category"
               onChange={handleSearch}
             />
-            <button onClick={handleExportTransactions} className="btn btn-success">
+          </div>
+          <div className='text-center fw-bold mb-3'>
+            <span className='bg-success text-white fw-bold'>Click to Export Filtered Transaction into PDF 👉🏻</span>
+          <button onClick={handleExportTransactions} className="btn btn-info fw-bold">
               Export Transaction to PDF
             </button>
-          </div>
+            </div>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {filteredExpenses.map((expense) => (
               <div key={expense._id} className="col">
@@ -151,7 +155,7 @@ const AllExpenses = () => {
                       <button onClick={() => handleEdit(expense._id)} className="btn w-40 btn-primary me-2">
                         Edit
                       </button>
-                      <button onClick={() => handleDelete(expense._id, expense.title)} className="delete-button">
+                      <button onClick={() => handleDelete(expense._id, expense.title)} className="btn btn-danger w-40">
                         Delete
                       </button>
                     </div>

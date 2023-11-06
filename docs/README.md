@@ -138,7 +138,9 @@ The dashboard component offers a comprehensive view of key financial data in the
 
 - **Expense Transaction Count**: Shows the total count of expense transactions.
 
-- **Chart Component**: The dashboard also incorporates a chart component, showcasing a visual representation of financial data for better analysis.
+- **Line Chart Component**: The dashboard also incorporates a Line chart component, showcasing a visual representation of financial data for better analysis.
+
+- **BarChart Component**: The dashboard also incorporates a barchart component, showcasing a visual representation day wise expenses.
 
 ### Add Capital
 

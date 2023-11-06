@@ -1,9 +1,8 @@
 .capital-bg {
-  background: linear-gradient(-45deg, #eb663d, #e73c7e, #066851);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-  height: 65vh;
-  border-radius: 20px;
+  border-radius: 10px;
+  color: whitesmoke;
+  background: rgba(2, 60, 30, 0.738);
+  backdrop-filter: blur(10px);
 }
 
 @keyframes gradient {

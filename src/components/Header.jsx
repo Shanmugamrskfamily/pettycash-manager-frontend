@@ -59,14 +59,14 @@ const Header = () => {
           {shouldShowSignup && (
             <li className="nav-item active">
               <Link className="nav-link signup" to="/signup">
-                Signup <i class="fa-solid fa-right-to-bracket"></i>
+                Signup <i className="fa-solid fa-right-to-bracket"></i>
               </Link>
             </li>
           )}
           {shouldShowLogin && (
             <li className="nav-item active">
               <Link className="nav-link login" to="/login">
-                Login <i class="fa-solid fa-right-to-bracket"></i>
+                Login <i className="fa-solid fa-right-to-bracket"></i>
               </Link>
             </li>
           )}
@@ -131,7 +131,7 @@ const Header = () => {
                   className="nav-link"
                   type="button"
                   onClick={handleLogout}>
-                  Logout <i class="fa-solid fa-right-from-bracket"></i>
+                  Logout <i className="fa-solid fa-right-from-bracket"></i>
                 </Link>
               </li>
             </>

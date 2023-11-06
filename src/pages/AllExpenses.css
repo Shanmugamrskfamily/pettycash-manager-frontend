@@ -1,21 +1,11 @@
-.card {
-  background: linear-gradient(-45deg, #bb07a9, #d80f5c, #845305);
-  background-size: 400% 400%;
-  animation: gradient 5s ease infinite;
-  border-radius: 20px;
-  color: whitesmoke;
+.container {
+  font-family: sans-serif !important;
 }
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.card {
+  border-radius: 10px;
+  color: whitesmoke;
+  background: rgba(60, 46, 2, 0.738);
+  backdrop-filter: blur(10px);
 }
 
 .card-body {
@@ -42,7 +32,7 @@
 .text-yellow {
   color: gold;
 }
-.delete-button {
+/* .delete-button {
   background: linear-gradient(rgb(231, 217, 217), rgb(255, 204, 0));
   cursor: pointer;
   border-radius: 20%;
@@ -51,4 +41,4 @@
 }
 .delete-button:hover {
   background: linear-gradient(rgba(255, 64, 0, 0.908), rgb(197, 197, 223));
-}
+} */
